@@ -1,0 +1,25 @@
+import java.util.Scanner;
+
+public class SmallestNatural{
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Введите целое число >= 2: ");
+        int n = scanner.nextInt();
+
+        int smallestDivisor = findSmallestDivisor(n);
+
+        System.out.println("Наименьший натуральный делитель числа " + n + ", отличный от 1, равен: " + smallestDivisor);
+
+        scanner.close();
+    }
+
+    // Функция для поиска наименьшего натурального делителя числа n, отличного от 1
+    public static int findSmallestDivisor(int n) {
+        for (int i = 2; i <= Math.sqrt(n); i++) {
+            if (n % i == 0) {
+                return i;
+            }
+        }
+        return n; // Если число простое, его наименьший делитель, отличный от 1, будет само число n
+    }
+}
