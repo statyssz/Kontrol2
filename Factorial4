@@ -1,0 +1,25 @@
+import java.util.Scanner;
+
+public class FactorialRecursive {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Введите число для вычисления факториала: ");
+        int n = scanner.nextInt();
+        
+        // Вычисление факториала числа n с помощью рекурсивной функции
+        long factorial = calculateFactorial(n);
+        
+        System.out.println("Факториал числа " + n + " равен: " + factorial);
+        
+        scanner.close();
+    }
+    
+    // Рекурсивная функция для вычисления факториала числа
+    public static long calculateFactorial(int n) {
+        if (n == 0 || n == 1) {
+            return 1; // Факториал 0 и 1 равен 1
+        } else {
+            return n * calculateFactorial(n - 1); // Вызываем рекурсивно для (n-1)
+        }
+    }
+}
